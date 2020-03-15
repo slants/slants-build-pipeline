@@ -19,9 +19,9 @@ class ApiDeployer extends Deployer {
 
     static def deployViaK8s(Map params) {
 
-        echo "Deploying via K8s"
-        echo "param: $params.DEWEY"
-        echo "param: $params.YUP"
+        sh "echo Deploying via K8s"
+        sh "echo param: $params.DEWEY"
+        sh "echo param: $params.YUP"
 
     }
 
