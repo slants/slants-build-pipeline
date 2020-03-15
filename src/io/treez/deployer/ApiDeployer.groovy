@@ -1,6 +1,4 @@
-package io.treez.deploy.api
-
-import io.treez.deploy.Deployer
+package io.treez.deployer
 
 class ApiDeployer extends Deployer {
 

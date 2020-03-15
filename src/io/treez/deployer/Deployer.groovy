@@ -1,4 +1,4 @@
-package io.treez.deploy
+package io.treez.deployer
 
 abstract class Deployer {
 
