@@ -1,8 +1,8 @@
 package io.treez.deployer
 
-//class ApiDeployer extends Deployer {
+class ApiDeployer extends Deployer {
 
-    def deploy(Map args) {
+    static def deploy(Map args) {
 
         def params = [
                 DEWEY: "Tran",
@@ -17,12 +17,12 @@ package io.treez.deployer
 
     }
 
-    def deployViaK8s(Map params) {
+    static def deployViaK8s(Map params) {
 
-        println "Deploying via K8s"
-        println "param: $params.DEWEY"
-        println "param: $params.YUP"
+        echo "Deploying via K8s"
+        echo "param: $params.DEWEY"
+        echo "param: $params.YUP"
 
     }
 
-//}
+}
