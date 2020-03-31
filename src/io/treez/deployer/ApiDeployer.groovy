@@ -19,7 +19,7 @@ def deploy(Map options = [:]) {
 //        sh "ssh -o 'StrictHostKeyChecking no' -i ${env.keyfile} ec2-user@kubectl.build.treez.io 'ls'"
 //    }
 
-    sshagent (credentials: ['jenkins-ssh']) {
+    sshagent (credentials: ['jenkins-ssh-testing-20191010']) {
         sh "ssh -o 'StrictHostKeyChecking no' ec2-user@kubectl.build.treez.io 'ls'"
     }
 
