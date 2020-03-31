@@ -4,7 +4,7 @@ def deploy(Map options = [:]) {
 
     def params = [
         DEWEY: "Tran",
-        YUP: args.refuse
+        YUP: options.refuse
     ]
 
     // create build.json
