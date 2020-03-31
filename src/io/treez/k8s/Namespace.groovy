@@ -1,6 +1,6 @@
 package io.treez.k8s
 
-class K8sNamespaceYaml {
+class Namespace {
 
     def getConfig(Map options) {
         return [

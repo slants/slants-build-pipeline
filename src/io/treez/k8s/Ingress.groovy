@@ -1,6 +1,6 @@
 package io.treez.k8s
 
-class K8sIngressYaml {
+class Ingress {
 
     static def getConfig(Map options) {
         return [

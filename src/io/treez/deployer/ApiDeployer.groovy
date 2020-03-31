@@ -1,28 +1,34 @@
 package io.treez.deployer
 
-class ApiDeployer extends Deployer {
+def deploy(Map options = [:]) {
 
-    static def deploy(Map args) {
+    def params = [
+        DEWEY: "Tran",
+        YUP: args.refuse
+    ]
 
-        def params = [
-                DEWEY: "Tran",
-                YUP: args.refuse
-        ]
+    // create build.json
+    // create deploy files
+    // deploy
 
-        // create build.json
-        // create deploy files
-        // deploy
+    writeBuildJson(params);
 
-        deployViaK8s(params);
+    deployViaK8s(params);
 
+    withCredentials([sshUserPrivateKey(credentialsId: "jenkins-ssh-testing-20191010", keyFileVariable: 'keyfile')]) {
+        sh "ssh -o 'StrictHostKeyChecking no' -i ${keyfile} ec2-user@kubectl.build.treez.io 'ls'"
     }
 
-    static def deployViaK8s(Map params) {
+}
 
-        sh "echo Deploying via K8s"
-        sh "echo param: $params.DEWEY"
-        sh "echo param: $params.YUP"
+def writeBuildJson(Map params) {
 
-    }
+}
+
+def deployViaK8s(Map params) {
+
+    sh "echo Deploying via K8s"
+    sh "echo param: $params.DEWEY"
+    sh "echo param: $params.YUP"
 
 }

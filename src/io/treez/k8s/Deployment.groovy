@@ -1,6 +1,6 @@
 package io.treez.k8s
 
-class K8sDeploymentYaml {
+class Deployment {
 
     static def getConfig(Map options = [:], script) {
 

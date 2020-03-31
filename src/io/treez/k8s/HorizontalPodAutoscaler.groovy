@@ -1,8 +1,8 @@
 package io.treez.k8s
 
-class K8sHorizontalPodAutoscalerYaml {
+class HorizontalPodAutoscaler {
 
-    static def getHorizontalPodAutoscalerConfig(Map options) {
+    static def getConfig(Map options) {
 
         def defaultOptions = [
             maxReplicas: 9,

@@ -1,6 +1,6 @@
 package io.treez.k8s
 
-class K8sServiceYaml {
+class Service {
 
     static def getConfig(Map options) {
         return [
