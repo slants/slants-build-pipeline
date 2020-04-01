@@ -15,10 +15,14 @@ def deploy(Map options = [:]) {
 
     deployViaK8s(params);
 
-    withCredentials([sshUserPrivateKey(credentialsId: "buildtreez-devops", keyFileVariable: 'privateKeyFile')]) {
-        sh "ssh -v -o StrictHostKeyChecking=no -i $privateKeyFile ec2-user@kubectl.build.treez.io ls"
-    }
+    remoteSsh "ls -l"
 
+}
+
+private def remoteSsh(String command) {
+    withCredentials([sshUserPrivateKey(credentialsId: "buildtreez-devops", keyFileVariable: 'privateKeyFile')]) {
+        sh "ssh -v -o StrictHostKeyChecking=no -i $privateKeyFile ec2-user@kubectl.build.treez.io $command"
+    }
 }
 
 def writeBuildJson(Map params) {
