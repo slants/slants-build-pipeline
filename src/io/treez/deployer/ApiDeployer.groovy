@@ -15,12 +15,8 @@ def deploy(Map options = [:]) {
 
     deployViaK8s(params);
 
-//    withCredentials(bindings: [sshUserPrivateKey(credentialsId: "jenkins-ssh", keyFileVariable: 'keyfile')]) {
-//        sh "ssh -o 'StrictHostKeyChecking no' -i ${env.keyfile} ec2-user@kubectl.build.treez.io 'ls'"
-//    }
-
-    sshagent (credentials: ['jenkins-ssh']) {
-        sh "ssh -o 'StrictHostKeyChecking no' ec2-user@kubectl.build.treez.io 'ls'"
+    withCredentials([sshUserPrivateKey(credentialsId: "buildtreez-devops", keyFileVariable: 'privateKeyFile')]) {
+        sh "ssh -v -o StrictHostKeyChecking=no -i $privateKeyFile ec2-user@kubectl.build.treez.io ls"
     }
 
 }
